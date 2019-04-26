@@ -626,6 +626,8 @@ definitions:
         type: "string"
       vBrandOfficeAddress:
         type: "string"
+      vBrandTerms:
+        type: "string"
   ApiResponse:
     type: "object"
     properties:
