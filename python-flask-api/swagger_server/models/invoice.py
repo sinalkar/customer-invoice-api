@@ -7,6 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server.models.invoice_billing_address import InvoiceBillingAddress  # noqa: F401,E501
+from swagger_server.models.invoice_brand import InvoiceBrand  # noqa: F401,E501
 from swagger_server.models.invoice_product import InvoiceProduct  # noqa: F401,E501
 from swagger_server.models.invoice_shipping_address import InvoiceShippingAddress  # noqa: F401,E501
 from swagger_server import util
@@ -18,7 +19,7 @@ class Invoice(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, i_invoice_id: int=None, v_invoice_number: str=None, v_customer_name: str=None, v_customer_gst_number: str=None, v_billing_address: InvoiceBillingAddress=None, v_installation_address: InvoiceShippingAddress=None, v_customer_code: str=None, dt_invoice_date: date=None, dt_invoice_due_date: date=None, e_payment_method: str=None, e_payment_status: str=None, v_mobile_number: str=None, i_sac_code: int=None, o_product_items: InvoiceProduct=None, o_invoice_brand: =None, v_invoice_period: str=None, f_basic_amount: float=None, f_discount_amount: float=None, f_total_amount_before_tax: float=None, f_total_tax_amount: float=None, f_total_amount: float=None, dt_created: datetime=None, dt_updated: datetime=None):  # noqa: E501
+    def __init__(self, i_invoice_id: int=None, v_invoice_number: str=None, v_customer_name: str=None, v_customer_gst_number: str=None, v_billing_address: InvoiceBillingAddress=None, v_installation_address: InvoiceShippingAddress=None, v_customer_code: str=None, dt_invoice_date: date=None, dt_invoice_due_date: date=None, e_payment_method: str=None, e_payment_status: str=None, v_mobile_number: str=None, i_sac_code: int=None, o_product_items: InvoiceProduct=None, o_invoice_brand: InvoiceBrand=None, v_invoice_period: str=None, f_basic_amount: float=None, f_discount_amount: float=None, f_total_amount_before_tax: float=None, f_total_tax_amount: float=None, f_total_amount: float=None, dt_created: datetime=None, dt_updated: datetime=None):  # noqa: E501
         """Invoice - a model defined in Swagger
 
         :param i_invoice_id: The i_invoice_id of this Invoice.  # noqa: E501
@@ -50,7 +51,7 @@ class Invoice(Model):
         :param o_product_items: The o_product_items of this Invoice.  # noqa: E501
         :type o_product_items: InvoiceProduct
         :param o_invoice_brand: The o_invoice_brand of this Invoice.  # noqa: E501
-        :type o_invoice_brand: 
+        :type o_invoice_brand: InvoiceBrand
         :param v_invoice_period: The v_invoice_period of this Invoice.  # noqa: E501
         :type v_invoice_period: str
         :param f_basic_amount: The f_basic_amount of this Invoice.  # noqa: E501
@@ -83,7 +84,7 @@ class Invoice(Model):
             'v_mobile_number': str,
             'i_sac_code': int,
             'o_product_items': InvoiceProduct,
-            'o_invoice_brand': ,
+            'o_invoice_brand': InvoiceBrand,
             'v_invoice_period': str,
             'f_basic_amount': float,
             'f_discount_amount': float,
@@ -462,22 +463,22 @@ class Invoice(Model):
         self._o_product_items = o_product_items
 
     @property
-    def o_invoice_brand(self) -> :
+    def o_invoice_brand(self) -> InvoiceBrand:
         """Gets the o_invoice_brand of this Invoice.
 
 
         :return: The o_invoice_brand of this Invoice.
-        :rtype: 
+        :rtype: InvoiceBrand
         """
         return self._o_invoice_brand
 
     @o_invoice_brand.setter
-    def o_invoice_brand(self, o_invoice_brand: ):
+    def o_invoice_brand(self, o_invoice_brand: InvoiceBrand):
         """Sets the o_invoice_brand of this Invoice.
 
 
         :param o_invoice_brand: The o_invoice_brand of this Invoice.
-        :type o_invoice_brand: 
+        :type o_invoice_brand: InvoiceBrand
         """
 
         self._o_invoice_brand = o_invoice_brand

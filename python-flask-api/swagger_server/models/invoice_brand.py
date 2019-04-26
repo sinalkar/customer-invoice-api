@@ -15,7 +15,7 @@ class InvoiceBrand(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, v_brand_name: str=None, v_brand_logo: str=None, v_brand_tax_info: str=None, v_bran_contact_info: str=None, v_brand_payment_info: str=None):  # noqa: E501
+    def __init__(self, v_brand_name: str=None, v_brand_logo: str=None, v_brand_tax_info: str=None, v_bran_contact_info: str=None, v_brand_payment_info: str=None, v_brand_office_address: str=None):  # noqa: E501
         """InvoiceBrand - a model defined in Swagger
 
         :param v_brand_name: The v_brand_name of this InvoiceBrand.  # noqa: E501
@@ -28,13 +28,16 @@ class InvoiceBrand(Model):
         :type v_bran_contact_info: str
         :param v_brand_payment_info: The v_brand_payment_info of this InvoiceBrand.  # noqa: E501
         :type v_brand_payment_info: str
+        :param v_brand_office_address: The v_brand_office_address of this InvoiceBrand.  # noqa: E501
+        :type v_brand_office_address: str
         """
         self.swagger_types = {
             'v_brand_name': str,
             'v_brand_logo': str,
             'v_brand_tax_info': str,
             'v_bran_contact_info': str,
-            'v_brand_payment_info': str
+            'v_brand_payment_info': str,
+            'v_brand_office_address': str
         }
 
         self.attribute_map = {
@@ -42,7 +45,8 @@ class InvoiceBrand(Model):
             'v_brand_logo': 'vBrandLogo',
             'v_brand_tax_info': 'vBrandTaxInfo',
             'v_bran_contact_info': 'vBranContactInfo',
-            'v_brand_payment_info': 'vBrandPaymentInfo'
+            'v_brand_payment_info': 'vBrandPaymentInfo',
+            'v_brand_office_address': 'vBrandOfficeAddress'
         }
 
         self._v_brand_name = v_brand_name
@@ -50,6 +54,7 @@ class InvoiceBrand(Model):
         self._v_brand_tax_info = v_brand_tax_info
         self._v_bran_contact_info = v_bran_contact_info
         self._v_brand_payment_info = v_brand_payment_info
+        self._v_brand_office_address = v_brand_office_address
 
     @classmethod
     def from_dict(cls, dikt) -> 'InvoiceBrand':
@@ -166,3 +171,24 @@ class InvoiceBrand(Model):
         """
 
         self._v_brand_payment_info = v_brand_payment_info
+
+    @property
+    def v_brand_office_address(self) -> str:
+        """Gets the v_brand_office_address of this InvoiceBrand.
+
+
+        :return: The v_brand_office_address of this InvoiceBrand.
+        :rtype: str
+        """
+        return self._v_brand_office_address
+
+    @v_brand_office_address.setter
+    def v_brand_office_address(self, v_brand_office_address: str):
+        """Sets the v_brand_office_address of this InvoiceBrand.
+
+
+        :param v_brand_office_address: The v_brand_office_address of this InvoiceBrand.
+        :type v_brand_office_address: str
+        """
+
+        self._v_brand_office_address = v_brand_office_address

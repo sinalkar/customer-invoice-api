@@ -581,30 +581,30 @@ definitions:
       oProductItems:
         $ref: "#/definitions/invoice_product"
       oInvoiceBrand:
-        $ref: "#/definitions/"
+        $ref: "#/definitions/invoice_brand"
       vInvoicePeriod:
         type: "string"
         example: "23 April 2019 - 23 April 2020"
       fBasicAmount:
         type: "number"
         format: "double"
-        example: 2999.0
+        example: 2999
       fDiscountAmount:
         type: "number"
         format: "double"
-        example: 299.0
+        example: 299
       fTotalAmountBeforeTax:
         type: "number"
         format: "double"
-        example: 2699.0
+        example: 2699
       fTotalTaxAmount:
         type: "number"
         format: "double"
-        example: 487.0
+        example: 487
       fTotalAmount:
         type: "number"
         format: "double"
-        example: 3186.0
+        example: 3186
       dtCreated:
         type: "string"
         format: "date-time"
@@ -623,6 +623,8 @@ definitions:
       vBranContactInfo:
         type: "string"
       vBrandPaymentInfo:
+        type: "string"
+      vBrandOfficeAddress:
         type: "string"
   ApiResponse:
     type: "object"
