@@ -1,12 +1,13 @@
 import connexion
 import six
 
+from swagger_server.models.account import Account  # noqa: E501
 from swagger_server.models.api_response import ApiResponse  # noqa: E501
 from swagger_server.models.customer import Customer  # noqa: E501
 from swagger_server import util
 
 
-def create_customer(body):  # noqa: E501
+def create_account(body):  # noqa: E501
     """Create new customer
 
      # noqa: E501
@@ -17,7 +18,7 @@ def create_customer(body):  # noqa: E501
     :rtype: ApiResponse
     """
     if connexion.request.is_json:
-        body = Customer.from_dict(connexion.request.get_json())  # noqa: E501
+        body = Account.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 

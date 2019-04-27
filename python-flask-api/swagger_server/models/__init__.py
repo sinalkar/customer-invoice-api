@@ -3,6 +3,7 @@
 # flake8: noqa
 from __future__ import absolute_import
 # import models into model package
+from swagger_server.models.account import Account
 from swagger_server.models.api_response import ApiResponse
 from swagger_server.models.customer import Customer
 from swagger_server.models.customer_billing_address import CustomerBillingAddress
