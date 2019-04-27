@@ -5,7 +5,6 @@ from __future__ import absolute_import
 from flask import json
 from six import BytesIO
 
-from swagger_server.models.account import Account  # noqa: E501
 from swagger_server.models.api_response import ApiResponse  # noqa: E501
 from swagger_server.models.customer import Customer  # noqa: E501
 from swagger_server.test import BaseTestCase
@@ -19,7 +18,7 @@ class TestCustomerController(BaseTestCase):
 
         Create new customer
         """
-        body = Account()
+        body = Customer()
         response = self.client.open(
             '/joinet/customer/1.0.0/customer',
             method='POST',

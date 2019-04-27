@@ -25,31 +25,6 @@ schemes:
 - "https"
 - "http"
 paths:
-  /account:
-    post:
-      tags:
-      - "account"
-      summary: "Create new customer"
-      operationId: "create_customer"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Customer object that needs to be added to the customer table"
-        required: true
-        schema:
-          $ref: "#/definitions/customer"
-      responses:
-        405:
-          description: "Invalid input"
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
-      x-swagger-router-controller: "swagger_server.controllers.account_controller"
   /customer:
     post:
       tags:
@@ -66,7 +41,7 @@ paths:
         description: "Customer object that needs to be added to the customer table"
         required: true
         schema:
-          $ref: "#/definitions/account"
+          $ref: "#/definitions/customer"
       responses:
         405:
           description: "Invalid input"
@@ -198,24 +173,15 @@ securityDefinitions:
     name: "api_key"
     in: "header"
 definitions:
-  account:
+  dummy:
     type: "object"
+    required:
+    - "dummy"
     properties:
-      vUsername:
+      dummy:
         type: "string"
         example: "sanjay123"
-        description: "Customer unique Username"
-      vPassword:
-        type: "string"
-        description: "Customer encrypted password"
-      vMobileNumber:
-        type: "string"
-        example: "911234554321"
-        description: "Customer mobile Number"
-      vEmail:
-        type: "string"
-        example: "test@example.com"
-        description: "Customer email id"
+        description: "dummy object"
   customer_category:
     type: "object"
     properties:
