@@ -27,28 +27,6 @@ class TestCustomerController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_customer_login(self):
-        """Test case for customer_login
-
-        Customer Login to System
-        """
-        response = self.client.open(
-            '/joinet/customer/1.0.0/customer/login',
-            method='POST')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
-    def test_customer_logout(self):
-        """Test case for customer_logout
-
-        Logs out current logged in customer session
-        """
-        response = self.client.open(
-            '/joinet/customer/1.0.0/customer/logout',
-            method='GET')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
     def test_delete_user(self):
         """Test case for delete_user
 

@@ -50,45 +50,6 @@ paths:
           schema:
             $ref: "#/definitions/ApiResponse"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
-  /customer/login:
-    post:
-      tags:
-      - "customer"
-      summary: "Customer Login to System"
-      operationId: "customer_login"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        200:
-          description: "successful operation"
-          headers:
-            X-Rate-Limit:
-              type: "integer"
-              format: "int32"
-              description: "calls per hour allowed by the user"
-            X-Expires-After:
-              type: "string"
-              format: "date-time"
-              description: "date in UTC when token expires"
-          schema:
-            type: "string"
-        400:
-          description: "Invalid username/password supplied"
-      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
-  /customer/logout:
-    get:
-      tags:
-      - "customer"
-      summary: "Logs out current logged in customer session"
-      operationId: "customer_logout"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        default:
-          description: "successful operation"
-      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
   /customer/{vUsername}:
     get:
       tags:
@@ -647,14 +608,16 @@ definitions:
       code:
         type: "integer"
         format: "int32"
+        example: 200
       type:
         type: "string"
       message:
         type: "string"
+        example: "Successful"
     example:
-      code: 0
+      code: 200
       type: "type"
-      message: "message"
+      message: "Successful"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"

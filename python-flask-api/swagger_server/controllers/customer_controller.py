@@ -21,28 +21,6 @@ def create_account(body):  # noqa: E501
     return 'do some magic!'
 
 
-def customer_login():  # noqa: E501
-    """Customer Login to System
-
-     # noqa: E501
-
-
-    :rtype: str
-    """
-    return 'do some magic!'
-
-
-def customer_logout():  # noqa: E501
-    """Logs out current logged in customer session
-
-     # noqa: E501
-
-
-    :rtype: None
-    """
-    return 'do some magic!'
-
-
 def delete_user(vUsername):  # noqa: E501
     """Delete user
 
