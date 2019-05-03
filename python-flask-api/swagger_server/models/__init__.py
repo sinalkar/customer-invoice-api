@@ -8,7 +8,6 @@ from swagger_server.models.customer import Customer
 from swagger_server.models.customer_billing_address import CustomerBillingAddress
 from swagger_server.models.customer_category import CustomerCategory
 from swagger_server.models.customer_shipping_address import CustomerShippingAddress
-from swagger_server.models.dummy import Dummy
 from swagger_server.models.invoice import Invoice
 from swagger_server.models.invoice_billing_address import InvoiceBillingAddress
 from swagger_server.models.invoice_brand import InvoiceBrand

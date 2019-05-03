@@ -135,15 +135,6 @@ securityDefinitions:
     name: "api_key"
     in: "header"
 definitions:
-  dummy:
-    type: "object"
-    required:
-    - "dummy"
-    properties:
-      dummy:
-        type: "string"
-        example: "sanjay123"
-        description: "dummy object"
   customer_category:
     type: "object"
     properties:
