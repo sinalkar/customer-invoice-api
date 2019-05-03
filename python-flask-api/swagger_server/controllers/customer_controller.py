@@ -69,9 +69,9 @@ def get_customer_product_detail_by_product_id(iProductId, iCustomerId):  # noqa:
 
     Logged In customer get product details by ProductId of related regional  # noqa: E501
 
-    :param iProductId: iProductId Id of logged In user
+    :param iProductId: Product Id to get product detail information
     :type iProductId: str
-    :param iCustomerId: iProductId Id of logged In user
+    :param iCustomerId: Customer Id with respect to product id
     :type iCustomerId: str
 
     :rtype: object
