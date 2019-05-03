@@ -105,6 +105,39 @@ paths:
         405:
           description: "Validation exception"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
+  /customer/{iCustomerId}/invoice:
+    get:
+      tags:
+      - "invoice"
+      summary: "Get Customer invoice list of given customer id"
+      description: "Logged In customer get own invoice list"
+      operationId: "get_customer_invoice_list"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "iCustomerId"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          default: "available"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/invoice"
+        400:
+          description: "Invalid status value"
+      x-swagger-router-controller: "swagger_server.controllers.invoice_controller"
 definitions:
   customer_category:
     type: "object"
@@ -225,6 +258,17 @@ definitions:
       dtUpdated:
         type: "string"
         format: "date-time"
+    example:
+      vAddressLine2: "vAddressLine2"
+      dtCreated: "2000-01-23T04:56:07.000+00:00"
+      vPinCode: "vPinCode"
+      vLandMark: "vLandMark"
+      vFlatNumber: "vFlatNumber"
+      vState: "vState"
+      dtUpdated: "2000-01-23T04:56:07.000+00:00"
+      id: 6
+      vAddressLine1: "vAddressLine1"
+      vCity: "vCity"
   invoice_shipping_address:
     type: "object"
     properties:
@@ -251,6 +295,17 @@ definitions:
       dtUpdated:
         type: "string"
         format: "date-time"
+    example:
+      vAddressLine2: "vAddressLine2"
+      dtCreated: "2000-01-23T04:56:07.000+00:00"
+      vPinCode: "vPinCode"
+      vLandMark: "vLandMark"
+      vFlatNumber: "vFlatNumber"
+      vState: "vState"
+      dtUpdated: "2000-01-23T04:56:07.000+00:00"
+      id: 1
+      vAddressLine1: "vAddressLine1"
+      vCity: "vCity"
   invoice_tax:
     type: "object"
     properties:
@@ -296,6 +351,41 @@ definitions:
       dtUpdated:
         type: "string"
         format: "date-time"
+    example:
+      dtCreated: "2000-01-23T04:56:07.000+00:00"
+      vProductName: "vProductName"
+      dtUpdated: "2000-01-23T04:56:07.000+00:00"
+      arrProductItem:
+      - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+        dtCreated: "2000-01-23T04:56:07.000+00:00"
+        oBillingCycle:
+          vCycleName: "vCycleName"
+          iCycleId: 9
+          iCycleMonth: 2
+          iCycleDays: 3
+        iProductItemId: 5
+        vProductItemDescription: "vProductItemDescription"
+        dtUpdated: "2000-01-23T04:56:07.000+00:00"
+        eProductItemType: "Goods"
+        bIsTaxable: true
+        vProductItemName: "vProductItemName"
+        fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+      - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+        dtCreated: "2000-01-23T04:56:07.000+00:00"
+        oBillingCycle:
+          vCycleName: "vCycleName"
+          iCycleId: 9
+          iCycleMonth: 2
+          iCycleDays: 3
+        iProductItemId: 5
+        vProductItemDescription: "vProductItemDescription"
+        dtUpdated: "2000-01-23T04:56:07.000+00:00"
+        eProductItemType: "Goods"
+        bIsTaxable: true
+        vProductItemName: "vProductItemName"
+        fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+      iProductId: 5
+      eStatus: "Active"
   invoice_product_item:
     type: "object"
     properties:
@@ -327,6 +417,21 @@ definitions:
       dtUpdated:
         type: "string"
         format: "date-time"
+    example:
+      fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+      dtCreated: "2000-01-23T04:56:07.000+00:00"
+      oBillingCycle:
+        vCycleName: "vCycleName"
+        iCycleId: 9
+        iCycleMonth: 2
+        iCycleDays: 3
+      iProductItemId: 5
+      vProductItemDescription: "vProductItemDescription"
+      dtUpdated: "2000-01-23T04:56:07.000+00:00"
+      eProductItemType: "Goods"
+      bIsTaxable: true
+      vProductItemName: "vProductItemName"
+      fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
   invoice_item_billing_cycle:
     type: "object"
     properties:
@@ -341,6 +446,11 @@ definitions:
       iCycleMonth:
         type: "integer"
         format: "int32"
+    example:
+      vCycleName: "vCycleName"
+      iCycleId: 9
+      iCycleMonth: 2
+      iCycleDays: 3
   customer:
     type: "object"
     required:
@@ -525,29 +635,114 @@ definitions:
       fBasicAmount:
         type: "number"
         format: "double"
-        example: 2999.0
+        example: 2999
       fDiscountAmount:
         type: "number"
         format: "double"
-        example: 299.0
+        example: 299
       fTotalAmountBeforeTax:
         type: "number"
         format: "double"
-        example: 2699.0
+        example: 2699
       fTotalTaxAmount:
         type: "number"
         format: "double"
-        example: 487.0
+        example: 487
       fTotalAmount:
         type: "number"
         format: "double"
-        example: 3186.0
+        example: 3186
       dtCreated:
         type: "string"
         format: "date-time"
       dtUpdated:
         type: "string"
         format: "date-time"
+    example:
+      iSACCode: 9084220
+      vBillingAddress:
+        vAddressLine2: "vAddressLine2"
+        dtCreated: "2000-01-23T04:56:07.000+00:00"
+        vPinCode: "vPinCode"
+        vLandMark: "vLandMark"
+        vFlatNumber: "vFlatNumber"
+        vState: "vState"
+        dtUpdated: "2000-01-23T04:56:07.000+00:00"
+        id: 6
+        vAddressLine1: "vAddressLine1"
+        vCity: "vCity"
+      fTotalAmountBeforeTax: 2699
+      dtInvoiceDate: "2019-04-23"
+      vInvoiceNumber: "INV/2019-04-23/1256"
+      vCustomerName: "Sanjay Sinalkar"
+      vCustomerGSTNumber: "27AAJCS2264E2ZC"
+      dtUpdated: "2000-01-23T04:56:07.000+00:00"
+      vInstallationAddress:
+        vAddressLine2: "vAddressLine2"
+        dtCreated: "2000-01-23T04:56:07.000+00:00"
+        vPinCode: "vPinCode"
+        vLandMark: "vLandMark"
+        vFlatNumber: "vFlatNumber"
+        vState: "vState"
+        dtUpdated: "2000-01-23T04:56:07.000+00:00"
+        id: 1
+        vAddressLine1: "vAddressLine1"
+        vCity: "vCity"
+      fTotalAmount: 3186
+      vInvoicePeriod: "23 April 2019 - 23 April 2020"
+      dtInvoiceDueDate: "2020-04-23"
+      oInvoiceBrand:
+        vBrandName: "vBrandName"
+        vBrandTerms: "vBrandTerms"
+        vBrandTaxInfo: "vBrandTaxInfo"
+        vBrandLogo: "vBrandLogo"
+        vBrandPaymentInfo: "vBrandPaymentInfo"
+        vBrandOfficeAddress: "vBrandOfficeAddress"
+        vBranContactInfo: "vBranContactInfo"
+      dtCreated: "2000-01-23T04:56:07.000+00:00"
+      vCustomerCode: "sanjay123"
+      fBasicAmount: 2999
+      fTotalTaxAmount: 487
+      ePaymentStatus: "Unpaid"
+      fDiscountAmount: 299
+      iInvoiceId: 0
+      ePaymentMethod: "Cash"
+      oProductItems:
+        dtCreated: "2000-01-23T04:56:07.000+00:00"
+        vProductName: "vProductName"
+        dtUpdated: "2000-01-23T04:56:07.000+00:00"
+        arrProductItem:
+        - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+          dtCreated: "2000-01-23T04:56:07.000+00:00"
+          oBillingCycle:
+            vCycleName: "vCycleName"
+            iCycleId: 9
+            iCycleMonth: 2
+            iCycleDays: 3
+          iProductItemId: 5
+          vProductItemDescription: "vProductItemDescription"
+          dtUpdated: "2000-01-23T04:56:07.000+00:00"
+          eProductItemType: "Goods"
+          bIsTaxable: true
+          vProductItemName: "vProductItemName"
+          fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+        - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+          dtCreated: "2000-01-23T04:56:07.000+00:00"
+          oBillingCycle:
+            vCycleName: "vCycleName"
+            iCycleId: 9
+            iCycleMonth: 2
+            iCycleDays: 3
+          iProductItemId: 5
+          vProductItemDescription: "vProductItemDescription"
+          dtUpdated: "2000-01-23T04:56:07.000+00:00"
+          eProductItemType: "Goods"
+          bIsTaxable: true
+          vProductItemName: "vProductItemName"
+          fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+        iProductId: 5
+        eStatus: "Active"
+      vMobileNumber: "911234554321"
   invoice_brand:
     type: "object"
     properties:
@@ -565,6 +760,14 @@ definitions:
         type: "string"
       vBrandTerms:
         type: "string"
+    example:
+      vBrandName: "vBrandName"
+      vBrandTerms: "vBrandTerms"
+      vBrandTaxInfo: "vBrandTaxInfo"
+      vBrandLogo: "vBrandLogo"
+      vBrandPaymentInfo: "vBrandPaymentInfo"
+      vBrandOfficeAddress: "vBrandOfficeAddress"
+      vBranContactInfo: "vBranContactInfo"
   ApiResponse:
     type: "object"
     properties:
