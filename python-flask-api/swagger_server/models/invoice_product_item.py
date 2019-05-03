@@ -16,11 +16,13 @@ class InvoiceProductItem(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, i_product_item_id: int=None, v_product_item_name: str=None, v_product_item_description: str=None, f_product_item_basic_amount: float=None, f_product_item_offer_amount: float=None, o_billing_cycle: InvoiceItemBillingCycle=None, b_is_taxable: bool=None, e_product_item_type: str=None, dt_created: datetime=None, dt_updated: datetime=None):  # noqa: E501
+    def __init__(self, i_product_item_id: int=None, i_product_id: int=None, v_product_item_name: str=None, v_product_item_description: str=None, f_product_item_basic_amount: float=None, f_product_item_offer_amount: float=None, o_billing_cycle: InvoiceItemBillingCycle=None, b_is_taxable: bool=None, e_product_item_type: str=None, dt_created: datetime=None, dt_updated: datetime=None):  # noqa: E501
         """InvoiceProductItem - a model defined in Swagger
 
         :param i_product_item_id: The i_product_item_id of this InvoiceProductItem.  # noqa: E501
         :type i_product_item_id: int
+        :param i_product_id: The i_product_id of this InvoiceProductItem.  # noqa: E501
+        :type i_product_id: int
         :param v_product_item_name: The v_product_item_name of this InvoiceProductItem.  # noqa: E501
         :type v_product_item_name: str
         :param v_product_item_description: The v_product_item_description of this InvoiceProductItem.  # noqa: E501
@@ -42,6 +44,7 @@ class InvoiceProductItem(Model):
         """
         self.swagger_types = {
             'i_product_item_id': int,
+            'i_product_id': int,
             'v_product_item_name': str,
             'v_product_item_description': str,
             'f_product_item_basic_amount': float,
@@ -55,6 +58,7 @@ class InvoiceProductItem(Model):
 
         self.attribute_map = {
             'i_product_item_id': 'iProductItemId',
+            'i_product_id': 'iProductId',
             'v_product_item_name': 'vProductItemName',
             'v_product_item_description': 'vProductItemDescription',
             'f_product_item_basic_amount': 'fProductItemBasicAmount',
@@ -67,6 +71,7 @@ class InvoiceProductItem(Model):
         }
 
         self._i_product_item_id = i_product_item_id
+        self._i_product_id = i_product_id
         self._v_product_item_name = v_product_item_name
         self._v_product_item_description = v_product_item_description
         self._f_product_item_basic_amount = f_product_item_basic_amount
@@ -108,6 +113,27 @@ class InvoiceProductItem(Model):
         """
 
         self._i_product_item_id = i_product_item_id
+
+    @property
+    def i_product_id(self) -> int:
+        """Gets the i_product_id of this InvoiceProductItem.
+
+
+        :return: The i_product_id of this InvoiceProductItem.
+        :rtype: int
+        """
+        return self._i_product_id
+
+    @i_product_id.setter
+    def i_product_id(self, i_product_id: int):
+        """Sets the i_product_id of this InvoiceProductItem.
+
+
+        :param i_product_id: The i_product_id of this InvoiceProductItem.
+        :type i_product_id: int
+        """
+
+        self._i_product_id = i_product_id
 
     @property
     def v_product_item_name(self) -> str:
