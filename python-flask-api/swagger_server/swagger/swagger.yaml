@@ -108,7 +108,7 @@ paths:
   /customer/{iCustomerId}/invoice:
     get:
       tags:
-      - "customer invoice"
+      - "customer"
       summary: "Get Customer invoice list of given customer id"
       description: "Logged In customer get own invoice list"
       operationId: "get_customer_invoice_list"
@@ -130,11 +130,11 @@ paths:
           description: "Invalid customer id provided"
         404:
           description: "No purchase made"
-      x-swagger-router-controller: "swagger_server.controllers.customer_invoice_controller"
+      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
   /customer/{iCustomerId}/invoice/{iInvoiceId}:
     get:
       tags:
-      - "customer invoice"
+      - "customer"
       summary: "Get Customer invoice detail of given customer id"
       description: "Logged In customer get own invoice list"
       operationId: "get_customer_invoice_by_id"
@@ -158,11 +158,11 @@ paths:
           description: "Invalid customer id or invoice id provided"
         404:
           description: "No purchase made"
-      x-swagger-router-controller: "swagger_server.controllers.customer_invoice_controller"
+      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
   /customer/{iCustomerId}/product:
     get:
       tags:
-      - "customer product"
+      - "customer"
       summary: "Get product list for logged in customer"
       description: "Logged In customer get product list of related region"
       operationId: "get_customers_product_list"
@@ -180,10 +180,39 @@ paths:
             items:
               $ref: "#/definitions/invoice_product"
         400:
-          description: "Invalid customer id or invoice id provided"
+          description: "Invalid customer id provided"
         404:
-          description: "No purchase made"
-      x-swagger-router-controller: "swagger_server.controllers.customer_product_controller"
+          description: "No product found"
+      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
+  /customer/{iCustomerId}/product/{iProductId}:
+    get:
+      tags:
+      - "customer"
+      summary: "Get product detail for logged in customer"
+      description: "Logged In customer get product details by ProductId of related\
+        \ regional "
+      operationId: "get_customer_product_detail_by_product_id"
+      parameters:
+      - name: "iProductId"
+        in: "path"
+        description: "iProductId Id of logged In user"
+        required: true
+        type: "string"
+      - name: "iCustomerId"
+        in: "path"
+        description: "iProductId Id of logged In user"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Get all product list for Customer"
+          schema:
+            type: "object"
+        400:
+          description: "Invalid customer id provided"
+        404:
+          description: "No product found"
+      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
 definitions:
   customer_category:
     type: "object"
