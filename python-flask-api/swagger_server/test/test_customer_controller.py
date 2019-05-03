@@ -52,7 +52,7 @@ class TestCustomerController(BaseTestCase):
     def test_update_customer(self):
         """Test case for update_customer
 
-        Updated user
+        Update customer profile details
         """
         body = Customer()
         response = self.client.open(

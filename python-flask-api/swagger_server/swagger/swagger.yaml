@@ -78,7 +78,7 @@ paths:
     put:
       tags:
       - "customer"
-      summary: "Updated user"
+      summary: "Update customer profile details"
       description: "This can only be done by the logged in user."
       operationId: "update_customer"
       produces:

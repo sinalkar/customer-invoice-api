@@ -48,7 +48,7 @@ def get_customer_by_id(iCustomerId):  # noqa: E501
 
 
 def update_customer(iCustomerId, body):  # noqa: E501
-    """Updated user
+    """Update customer profile details
 
     This can only be done by the logged in user. # noqa: E501
 
