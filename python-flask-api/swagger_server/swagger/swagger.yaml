@@ -112,22 +112,13 @@ paths:
       summary: "Get Customer invoice list of given customer id"
       description: "Logged In customer get own invoice list"
       operationId: "get_customer_invoice_list"
-      produces:
-      - "application/json"
       parameters:
       - name: "iCustomerId"
-        in: "query"
-        description: "Status values that need to be considered for filter"
+        in: "path"
+        description: "Customer Id needed to fetch all profile related information\
+          \ of given customer"
         required: true
-        type: "array"
-        items:
-          type: "string"
-          default: "available"
-          enum:
-          - "available"
-          - "pending"
-          - "sold"
-        collectionFormat: "multi"
+        type: "string"
       responses:
         200:
           description: "successful operation"
@@ -356,7 +347,7 @@ definitions:
       vProductName: "vProductName"
       dtUpdated: "2000-01-23T04:56:07.000+00:00"
       arrProductItem:
-      - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+      - fProductItemBasicAmount: 2.3021358869347655
         dtCreated: "2000-01-23T04:56:07.000+00:00"
         oBillingCycle:
           vCycleName: "vCycleName"
@@ -369,8 +360,8 @@ definitions:
         eProductItemType: "Goods"
         bIsTaxable: true
         vProductItemName: "vProductItemName"
-        fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
-      - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+        fProductItemOfferAmount: 7.061401241503109
+      - fProductItemBasicAmount: 2.3021358869347655
         dtCreated: "2000-01-23T04:56:07.000+00:00"
         oBillingCycle:
           vCycleName: "vCycleName"
@@ -383,7 +374,7 @@ definitions:
         eProductItemType: "Goods"
         bIsTaxable: true
         vProductItemName: "vProductItemName"
-        fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+        fProductItemOfferAmount: 7.061401241503109
       iProductId: 5
       eStatus: "Active"
   invoice_product_item:
@@ -418,7 +409,7 @@ definitions:
         type: "string"
         format: "date-time"
     example:
-      fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+      fProductItemBasicAmount: 2.3021358869347655
       dtCreated: "2000-01-23T04:56:07.000+00:00"
       oBillingCycle:
         vCycleName: "vCycleName"
@@ -431,7 +422,7 @@ definitions:
       eProductItemType: "Goods"
       bIsTaxable: true
       vProductItemName: "vProductItemName"
-      fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+      fProductItemOfferAmount: 7.061401241503109
   invoice_item_billing_cycle:
     type: "object"
     properties:
@@ -635,23 +626,23 @@ definitions:
       fBasicAmount:
         type: "number"
         format: "double"
-        example: 2999
+        example: 2999.0
       fDiscountAmount:
         type: "number"
         format: "double"
-        example: 299
+        example: 299.0
       fTotalAmountBeforeTax:
         type: "number"
         format: "double"
-        example: 2699
+        example: 2699.0
       fTotalTaxAmount:
         type: "number"
         format: "double"
-        example: 487
+        example: 487.0
       fTotalAmount:
         type: "number"
         format: "double"
-        example: 3186
+        example: 3186.0
       dtCreated:
         type: "string"
         format: "date-time"
@@ -671,7 +662,7 @@ definitions:
         id: 6
         vAddressLine1: "vAddressLine1"
         vCity: "vCity"
-      fTotalAmountBeforeTax: 2699
+      fTotalAmountBeforeTax: 2699.0
       dtInvoiceDate: "2019-04-23"
       vInvoiceNumber: "INV/2019-04-23/1256"
       vCustomerName: "Sanjay Sinalkar"
@@ -688,7 +679,7 @@ definitions:
         id: 1
         vAddressLine1: "vAddressLine1"
         vCity: "vCity"
-      fTotalAmount: 3186
+      fTotalAmount: 3186.0
       vInvoicePeriod: "23 April 2019 - 23 April 2020"
       dtInvoiceDueDate: "2020-04-23"
       oInvoiceBrand:
@@ -701,10 +692,10 @@ definitions:
         vBranContactInfo: "vBranContactInfo"
       dtCreated: "2000-01-23T04:56:07.000+00:00"
       vCustomerCode: "sanjay123"
-      fBasicAmount: 2999
-      fTotalTaxAmount: 487
+      fBasicAmount: 2999.0
+      fTotalTaxAmount: 487.0
       ePaymentStatus: "Unpaid"
-      fDiscountAmount: 299
+      fDiscountAmount: 299.0
       iInvoiceId: 0
       ePaymentMethod: "Cash"
       oProductItems:
@@ -712,7 +703,7 @@ definitions:
         vProductName: "vProductName"
         dtUpdated: "2000-01-23T04:56:07.000+00:00"
         arrProductItem:
-        - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+        - fProductItemBasicAmount: 2.3021358869347655
           dtCreated: "2000-01-23T04:56:07.000+00:00"
           oBillingCycle:
             vCycleName: "vCycleName"
@@ -725,8 +716,8 @@ definitions:
           eProductItemType: "Goods"
           bIsTaxable: true
           vProductItemName: "vProductItemName"
-          fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
-        - fProductItemBasicAmount: 2.3021358869347654518833223846741020679473876953125
+          fProductItemOfferAmount: 7.061401241503109
+        - fProductItemBasicAmount: 2.3021358869347655
           dtCreated: "2000-01-23T04:56:07.000+00:00"
           oBillingCycle:
             vCycleName: "vCycleName"
@@ -739,7 +730,7 @@ definitions:
           eProductItemType: "Goods"
           bIsTaxable: true
           vProductItemName: "vProductItemName"
-          fProductItemOfferAmount: 7.061401241503109105224211816675961017608642578125
+          fProductItemOfferAmount: 7.061401241503109
         iProductId: 5
         eStatus: "Active"
       vMobileNumber: "911234554321"

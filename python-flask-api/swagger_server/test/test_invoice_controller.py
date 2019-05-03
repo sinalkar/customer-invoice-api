@@ -17,11 +17,9 @@ class TestInvoiceController(BaseTestCase):
 
         Get Customer invoice list of given customer id
         """
-        query_string = [('iCustomerId', 'available')]
         response = self.client.open(
-            '/joinet/customer/1.0.0/customer/{iCustomerId}/invoice',
-            method='GET',
-            query_string=query_string)
+            '/joinet/customer/1.0.0/customer/{iCustomerId}/invoice'.format(iCustomerId='iCustomerId_example'),
+            method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 

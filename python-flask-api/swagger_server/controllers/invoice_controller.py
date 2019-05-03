@@ -10,8 +10,8 @@ def get_customer_invoice_list(iCustomerId):  # noqa: E501
 
     Logged In customer get own invoice list # noqa: E501
 
-    :param iCustomerId: Status values that need to be considered for filter
-    :type iCustomerId: List[str]
+    :param iCustomerId: Customer Id needed to fetch all profile related information of given customer
+    :type iCustomerId: str
 
     :rtype: List[Invoice]
     """
