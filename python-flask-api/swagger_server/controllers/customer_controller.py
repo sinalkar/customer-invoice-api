@@ -21,39 +21,39 @@ def create_account(body):  # noqa: E501
     return 'do some magic!'
 
 
-def delete_user(vUsername):  # noqa: E501
+def delete_user(iCustomerId):  # noqa: E501
     """Delete user
 
     This can only be done by the logged in user. # noqa: E501
 
-    :param vUsername: The name that needs to be deleted
-    :type vUsername: str
+    :param iCustomerId: The name that needs to be deleted
+    :type iCustomerId: str
 
     :rtype: None
     """
     return 'do some magic!'
 
 
-def get_customer_by_user_name(vUsername):  # noqa: E501
-    """Get user by user name
+def get_customer_by_id(iCustomerId):  # noqa: E501
+    """Get customer profile information
 
      # noqa: E501
 
-    :param vUsername: The name that needs to be fetched. Use user1 for testing.
-    :type vUsername: str
+    :param iCustomerId: Customer Id needed to fetch all profile related information of given customer
+    :type iCustomerId: str
 
     :rtype: Customer
     """
     return 'do some magic!'
 
 
-def update_customer(vUsername, body):  # noqa: E501
+def update_customer(iCustomerId, body):  # noqa: E501
     """Updated user
 
     This can only be done by the logged in user. # noqa: E501
 
-    :param vUsername: name that need to be updated
-    :type vUsername: str
+    :param iCustomerId: name that need to be updated
+    :type iCustomerId: str
     :param body: Updated customer object
     :type body: dict | bytes
 

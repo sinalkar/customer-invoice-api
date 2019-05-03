@@ -50,18 +50,19 @@ paths:
           schema:
             $ref: "#/definitions/ApiResponse"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
-  /customer/{vUsername}:
+  /customer/{iCustomerId}/profile:
     get:
       tags:
       - "customer"
-      summary: "Get user by user name"
-      operationId: "get_customer_by_user_name"
+      summary: "Get customer profile information"
+      operationId: "get_customer_by_id"
       produces:
       - "application/json"
       parameters:
-      - name: "vUsername"
+      - name: "iCustomerId"
         in: "path"
-        description: "The name that needs to be fetched. Use user1 for testing."
+        description: "Customer Id needed to fetch all profile related information\
+          \ of given customer"
         required: true
         type: "string"
       responses:
@@ -70,9 +71,9 @@ paths:
           schema:
             $ref: "#/definitions/customer"
         400:
-          description: "Invalid username supplied"
+          description: "Invalid customer id provided"
         404:
-          description: "User not found"
+          description: "Customer details not found"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
     put:
       tags:
@@ -83,7 +84,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "vUsername"
+      - name: "iCustomerId"
         in: "path"
         description: "name that need to be updated"
         required: true
@@ -110,7 +111,7 @@ paths:
       - "application/json"
       - "application/xml"
       parameters:
-      - name: "vUsername"
+      - name: "iCustomerId"
         in: "path"
         description: "The name that needs to be deleted"
         required: true

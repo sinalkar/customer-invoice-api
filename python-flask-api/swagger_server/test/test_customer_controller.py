@@ -33,18 +33,18 @@ class TestCustomerController(BaseTestCase):
         Delete user
         """
         response = self.client.open(
-            '/joinet/customer/1.0.0/customer/{vUsername}'.format(vUsername='vUsername_example'),
+            '/joinet/customer/1.0.0/customer/{iCustomerId}/profile'.format(iCustomerId='iCustomerId_example'),
             method='DELETE')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_get_customer_by_user_name(self):
-        """Test case for get_customer_by_user_name
+    def test_get_customer_by_id(self):
+        """Test case for get_customer_by_id
 
-        Get user by user name
+        Get customer profile information
         """
         response = self.client.open(
-            '/joinet/customer/1.0.0/customer/{vUsername}'.format(vUsername='vUsername_example'),
+            '/joinet/customer/1.0.0/customer/{iCustomerId}/profile'.format(iCustomerId='iCustomerId_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -56,7 +56,7 @@ class TestCustomerController(BaseTestCase):
         """
         body = Customer()
         response = self.client.open(
-            '/joinet/customer/1.0.0/customer/{vUsername}'.format(vUsername='vUsername_example'),
+            '/joinet/customer/1.0.0/customer/{iCustomerId}/profile'.format(iCustomerId='iCustomerId_example'),
             method='PUT',
             data=json.dumps(body),
             content_type='application/json')
