@@ -79,8 +79,10 @@ paths:
       tags:
       - "customer"
       summary: "Update customer profile details"
-      description: "This can only be done by the logged in user."
-      operationId: "update_customer"
+      description: "Update customer profile details"
+      operationId: "update_customer_by_id"
+      consumes:
+      - "application/json"
       produces:
       - "application/json"
       parameters:
@@ -103,38 +105,6 @@ paths:
         405:
           description: "Validation exception"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
-    delete:
-      tags:
-      - "customer"
-      summary: "Delete user"
-      description: "This can only be done by the logged in user."
-      operationId: "delete_user"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "iCustomerId"
-        in: "path"
-        description: "The name that needs to be deleted"
-        required: true
-        type: "string"
-      responses:
-        400:
-          description: "Invalid username supplied"
-        404:
-          description: "User not found"
-      x-swagger-router-controller: "swagger_server.controllers.customer_controller"
-securityDefinitions:
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:pets: "modify pets in your account"
-      read:pets: "read your pets"
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
 definitions:
   customer_category:
     type: "object"
@@ -555,23 +525,23 @@ definitions:
       fBasicAmount:
         type: "number"
         format: "double"
-        example: 2999
+        example: 2999.0
       fDiscountAmount:
         type: "number"
         format: "double"
-        example: 299
+        example: 299.0
       fTotalAmountBeforeTax:
         type: "number"
         format: "double"
-        example: 2699
+        example: 2699.0
       fTotalTaxAmount:
         type: "number"
         format: "double"
-        example: 487
+        example: 487.0
       fTotalAmount:
         type: "number"
         format: "double"
-        example: 3186
+        example: 3186.0
       dtCreated:
         type: "string"
         format: "date-time"

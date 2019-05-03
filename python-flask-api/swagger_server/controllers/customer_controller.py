@@ -21,19 +21,6 @@ def create_account(body):  # noqa: E501
     return 'do some magic!'
 
 
-def delete_user(iCustomerId):  # noqa: E501
-    """Delete user
-
-    This can only be done by the logged in user. # noqa: E501
-
-    :param iCustomerId: The name that needs to be deleted
-    :type iCustomerId: str
-
-    :rtype: None
-    """
-    return 'do some magic!'
-
-
 def get_customer_by_id(iCustomerId):  # noqa: E501
     """Get customer profile information by given Customer id
 
@@ -47,10 +34,10 @@ def get_customer_by_id(iCustomerId):  # noqa: E501
     return 'do some magic!'
 
 
-def update_customer(iCustomerId, body):  # noqa: E501
+def update_customer_by_id(iCustomerId, body):  # noqa: E501
     """Update customer profile details
 
-    This can only be done by the logged in user. # noqa: E501
+    Update customer profile details # noqa: E501
 
     :param iCustomerId: name that need to be updated
     :type iCustomerId: str

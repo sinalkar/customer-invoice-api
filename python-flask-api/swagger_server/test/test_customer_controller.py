@@ -27,17 +27,6 @@ class TestCustomerController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_delete_user(self):
-        """Test case for delete_user
-
-        Delete user
-        """
-        response = self.client.open(
-            '/joinet/customer/1.0.0/customer/{iCustomerId}/profile'.format(iCustomerId='iCustomerId_example'),
-            method='DELETE')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
     def test_get_customer_by_id(self):
         """Test case for get_customer_by_id
 
@@ -49,8 +38,8 @@ class TestCustomerController(BaseTestCase):
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
 
-    def test_update_customer(self):
-        """Test case for update_customer
+    def test_update_customer_by_id(self):
+        """Test case for update_customer_by_id
 
         Update customer profile details
         """
