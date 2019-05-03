@@ -54,7 +54,7 @@ paths:
     get:
       tags:
       - "customer"
-      summary: "Get customer profile information"
+      summary: "Get customer profile information by given Customer id"
       operationId: "get_customer_by_id"
       produces:
       - "application/json"
@@ -97,9 +97,11 @@ paths:
           $ref: "#/definitions/customer"
       responses:
         400:
-          description: "Invalid customer supplied"
+          description: "Invalid customer id supplied"
         404:
-          description: "User not found"
+          description: "Customer not found"
+        405:
+          description: "Validation exception"
       x-swagger-router-controller: "swagger_server.controllers.customer_controller"
     delete:
       tags:
@@ -109,7 +111,6 @@ paths:
       operationId: "delete_user"
       produces:
       - "application/json"
-      - "application/xml"
       parameters:
       - name: "iCustomerId"
         in: "path"
@@ -554,23 +555,23 @@ definitions:
       fBasicAmount:
         type: "number"
         format: "double"
-        example: 2999.0
+        example: 2999
       fDiscountAmount:
         type: "number"
         format: "double"
-        example: 299.0
+        example: 299
       fTotalAmountBeforeTax:
         type: "number"
         format: "double"
-        example: 2699.0
+        example: 2699
       fTotalTaxAmount:
         type: "number"
         format: "double"
-        example: 487.0
+        example: 487
       fTotalAmount:
         type: "number"
         format: "double"
-        example: 3186.0
+        example: 3186
       dtCreated:
         type: "string"
         format: "date-time"

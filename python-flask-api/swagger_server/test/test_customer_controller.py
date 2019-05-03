@@ -41,7 +41,7 @@ class TestCustomerController(BaseTestCase):
     def test_get_customer_by_id(self):
         """Test case for get_customer_by_id
 
-        Get customer profile information
+        Get customer profile information by given Customer id
         """
         response = self.client.open(
             '/joinet/customer/1.0.0/customer/{iCustomerId}/profile'.format(iCustomerId='iCustomerId_example'),

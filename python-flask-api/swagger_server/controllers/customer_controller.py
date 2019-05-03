@@ -35,7 +35,7 @@ def delete_user(iCustomerId):  # noqa: E501
 
 
 def get_customer_by_id(iCustomerId):  # noqa: E501
-    """Get customer profile information
+    """Get customer profile information by given Customer id
 
      # noqa: E501
 
